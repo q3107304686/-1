@@ -1,0 +1,55 @@
+/* 设置所有元素的盒子模型为 border-box，确保元素的宽度和高度包含内边距和边框 */  
+* {  
+    box-sizing: border-box;  
+}  
+
+/* body 的样式设置 */  
+body {  
+    display: flex; /* 使用 flexbox 布局 */  
+    align-items: center; /* 垂直居中对齐内容 */  
+    justify-content: center; /* 水平居中对齐内容 */  
+    height: 100vh; /* 设置高度为视口的 100% */  
+    overflow: hidden; /* 隐藏超出视口的内容 */  
+    margin: 0; /* 取消默认的外边距 */  
+}  
+
+/* 容器的样式设置 */  
+.container {  
+    display: flex; /* 使用 flexbox 布局 */  
+    width: 90vw; /* 容器宽度为视口宽度的 90% */  
+}  
+
+/* 面板的样式设置 */  
+.panel {  
+    background-size: cover; /* 背景图像覆盖整个面板 */  
+    background-position: center; /* 背景图像居中 */  
+    height: 80vh; /* 面板高度为视口的 80% */  
+    border-radius: 50px; /* 圆角边框，半径为 50px */  
+    color: #9e9595; /* 字体颜色为灰色 */  
+    cursor: pointer; /* 鼠标悬停时显示为指针形状 */  
+    flex: 0.5; /* 面板的初始弹性比例为 0.5 */  
+    margin: 10px; /* 每个面板之间的外边距为 10px */  
+    position: relative; /* 设置相对定位，便于绝对定位的子元素 */  
+    transition: all 700ms ease-in; /* 所有属性在 700ms 内平滑过渡 */  
+}  
+
+/* 面板标题的样式设置 */  
+.panel h3 {  
+    font-size: 24px; /* 字体大小为 24px */  
+    position: absolute; /* 绝对定位，依据最近的相对定位父元素 */  
+    bottom: 20px; /* 距底部 20px */  
+    left: 20px; /* 距左侧 20px */  
+    margin: 0; /* 取消默认的外边距 */  
+    opacity: 0; /* 初始不透明度为 0（不可见） */  
+}  
+
+/* 当面板被激活时的样式 */  
+.panel.active {  
+    flex: 5; /* 激活时弹性比例变为 5，面板宽度增大 */  
+}  
+
+/* 当面板被激活时标题的样式 */  
+.panel.active h3 {  
+    opacity: 1; /* 变为完全可见 */  
+    transition: opacity 0.3s ease-in 0.4; /* 不透明度在 0.3s 内过渡，延迟 0.4s */  
+}
